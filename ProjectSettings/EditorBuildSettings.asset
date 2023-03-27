@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/oseneko.unity
     guid: 24f534fe63e8640f7b3cfadb98cf4fcf
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 413c84fa7fd3c0d168a7a7d5d92ac3cc
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: c850ee8c3b14cc8459e7e186857cf567
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: f2759ed71eba2412e837a62506ef7b89,
       type: 2}
