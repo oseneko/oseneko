@@ -1,6 +1,7 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PhotonConnecter : MonoBehaviourPunCallbacks
 {
@@ -15,13 +16,13 @@ public class PhotonConnecter : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = nickName;
     }
 
-    void Start()
-    {
-        Connect();
-    }
+    // void Start()
+    // {
+    //     Connect();
+    // }
 
-    void Update()
-    {
+    // void Update()
+    // {
         // if (Input.GetKeyDown(KeyCode.A))
         // {
         //     Connect();
@@ -30,15 +31,20 @@ public class PhotonConnecter : MonoBehaviourPunCallbacks
         // {
         //     JoinRoom();
         // }
+    // }
+
+    public void GameStart()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 
-    void Connect()
+    public void Connect()
     {
         Debug.Log("Photon Cloud に接続します。");
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    public void JoinRoom()
+    private void JoinRoom()
     {
         Debug.Log($"{roomName}に参加します。");
         PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions(), TypedLobby.Default);
@@ -53,6 +59,7 @@ public class PhotonConnecter : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log($"{roomName} に参加しました。");
+        GameStart();
     }
 
     // public override void OnPlayerEnteredRoom(Player newPlayer)
